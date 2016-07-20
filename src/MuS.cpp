@@ -27,7 +27,7 @@ double MuS::getLogILik()
    //std::cout << "p5: " << res << std::endl;
    return res;  
 }
-void MuS::updatepost(double *w)
+void MuS::updatepost()
 {
    int i;
    double d;
@@ -54,8 +54,8 @@ void MuS::setData(int nob, double **x, double *y,
    this->nob=nob;
    this->y=y;
    this->indices=indices;
-   //updatepost();
-   updatepost(w);
+   this->w=w;
+   updatepost();
 }
 double* MuS::getParameterEstimate()
 {

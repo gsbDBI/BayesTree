@@ -34,7 +34,7 @@ public:
    // public methods -----------------------------
    void toScreen() const;
    void drawPost();
-   void clearData() {nob=0;y=0;indices=0;updatepost(0);}
+   void clearData() {nob=0;y=0;indices=0;updatepost();}
 private:
    //parameter // xi ~ N(mu,sig2)---
    double mu;  
@@ -45,6 +45,7 @@ private:
    // data --------------------------
    int nob;
    double* y;
+   double* w;
    //double* w; should implement this in the future
    int* indices;
    // state -----------------------------
@@ -53,6 +54,6 @@ private:
    double ybar,s2; // sample mean and sum(y_i-ybar)^2
    double b;     // nob/sigma2
    // methods----------------------------------------------
-   void updatepost(double* w);
+   void updatepost();
 };
 #endif
