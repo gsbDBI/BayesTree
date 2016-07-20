@@ -31,10 +31,16 @@ void MuS::updatepost()
 {
    int i;
    double d;
+   double sumweights=0.0;
    if(nob) {
       ybar=0.0;
-      for(i=1;i<=nob;i++) ybar += y[indices[i]]*w[indices[i]];
-      ybar /= nob;
+      for(i=1;i<=nob;i++)
+      {
+        ybar += y[indices[i]]*w[indices[i]];
+        sumweights+=w[indices[i]];
+      }
+      //ybar /= nob;
+      ybar/=sumweights;
       //should we divide ybar by sum of weights?
       s2=0.0;
       for(i=1;i<=nob;i++) {d=y[indices[i]]-ybar; s2 += d*d;}

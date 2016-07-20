@@ -605,25 +605,28 @@ void Node::currentFits(MuS* mod,int nTrain,double** xTrain,double* yTrain,int nT
 	int nbot = NumBotNodes();
 	int nobTrain=0;
         int *itr;
+  double sumweights=0.0;
 
 	for(int i=1;i<=nbot;i++) { // loop over bottom nodes-------------
                 //data is list of indices of train obs in the bottom node
                 List& data = ((Node *)botvec[i])->DataList;
                 nobTrain = data.length;
                 itr = new int[nobTrain+1]; //copy list contents to itr
-
+                sumweights=0.0;
                 Cell *cell = data.first;
                 if(nobTrain>0) itr[1]=*((int *)(cell->contents));
                 ybar = yTrain[itr[1]]*w[itr[1]];
+                sumweights=w[itr[1]];
                 for(int j=2;j<=nobTrain;j++) {
                    cell = cell->after;
                    itr[j]=*((int *)(cell->contents));
                    //ybar += yTrain[itr[j]];
                    ybar += yTrain[itr[j]]*w[itr[j]];
+                   sumweights+=w[itr[j]];
                 }
-                ybar /= nobTrain;
+                //ybar /= nobTrain;
                 //should we divide by sum of weights instead?
-
+                ybar/=sumweights;
                 b=nobTrain/mod->getSigma2();a=mod->getA();
                 postmu = b*ybar/(a+b); postsd = 1.0/sqrt(a+b);
                 nodeMu = postmu + postsd*norm_rand();
