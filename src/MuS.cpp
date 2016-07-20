@@ -27,7 +27,7 @@ double MuS::getLogILik()
    //std::cout << "p5: " << res << std::endl;
    return res;  
 }
-void MuS::updatepost(w)
+void MuS::updatepost(double *w)
 {
    int i;
    double d;
