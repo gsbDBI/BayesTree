@@ -66,7 +66,7 @@ EndNodeModel* endNodeModel=0;
 
 extern "C" {
 void mbart(int *iNumObs, int *iNumX, int *inrowTest,
-           double *iXDat, double *iYDat,
+           double *iXDat, double *iYDat, double *weights,
 	   double *iXTest,
 	   double *isigma, int *isigdf, double *isigquant,
 	   double *ikfac,
@@ -192,8 +192,8 @@ void mbart(int *iNumObs, int *iNumX, int *inrowTest,
 
    VarType = new int [NumX+1];
    for(int i=1;i<=NumX;i++) VarType[i]=ORD;
-   weights = new double[NumObs+1];
-   for(int i=1;i<=NumObs;i++) weights[i]=1.0;
+   //weights = new double[NumObs+1];
+   //for(int i=1;i<=NumObs;i++) weights[i]=1.0;
    RuleNum = new int[NumX+1];
    RuleMat = new dp [NumX+1];
 
