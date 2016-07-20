@@ -66,7 +66,7 @@ EndNodeModel* endNodeModel=0;
 
 extern "C" {
 void mbart(int *iNumObs, int *iNumX, int *inrowTest,
-           double *iXDat, double *iYDat, double *weights,
+           double *iXDat, double *iYDat, double *iweights,
 	   double *iXTest,
 	   double *isigma, int *isigdf, double *isigquant,
 	   double *ikfac,
@@ -89,7 +89,7 @@ void mbart(int *iNumObs, int *iNumX, int *inrowTest,
       else
          Rprintf("\n\nRunning BART with numeric y\n\n");
    }
-
+   weights=*iweights;
    NumObs = *iNumObs;
    NumX = *iNumX;
    int nrowTest = *inrowTest;
