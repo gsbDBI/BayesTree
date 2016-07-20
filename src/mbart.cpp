@@ -89,7 +89,7 @@ void mbart(int *iNumObs, int *iNumX, int *inrowTest,
       else
          Rprintf("\n\nRunning BART with numeric y\n\n");
    }
-   weights=*iweights;
+   //weights=*iweights;
    NumObs = *iNumObs;
    NumX = *iNumX;
    int nrowTest = *inrowTest;
@@ -163,6 +163,7 @@ void mbart(int *iNumObs, int *iNumX, int *inrowTest,
    YDat = Lib::almat(NumObs,NumY); //note: for binary y this the 0-1 y (never changes), for continuous never used
    YDat1 = new double[NumObs+1];//used for resids in backfitting
    double *Y = new double[NumObs+1];//used for y in numeric, latent - binary_offset for binary y
+   //double *weights = new double[NumObs+1];
 
    int tcnt = 0;
    for(int j=1;j<=NumX;j++) {
@@ -192,8 +193,8 @@ void mbart(int *iNumObs, int *iNumX, int *inrowTest,
 
    VarType = new int [NumX+1];
    for(int i=1;i<=NumX;i++) VarType[i]=ORD;
-   //weights = new double[NumObs+1];
-   //for(int i=1;i<=NumObs;i++) weights[i]=1.0;
+   weights = new double[NumObs+1];
+   for(int i=1;i<=NumObs;i++) weights[i]=iweights[i];
    RuleNum = new int[NumX+1];
    RuleMat = new dp [NumX+1];
 
