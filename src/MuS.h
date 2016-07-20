@@ -34,7 +34,7 @@ public:
    // public methods -----------------------------
    void toScreen() const;
    void drawPost();
-   void clearData() {nob=0;y=0;indices=0;updatepost();}
+   void clearData() {nob=0;y=0;indices=0;updatepost(w);}
 private:
    //parameter // xi ~ N(mu,sig2)---
    double mu;  
