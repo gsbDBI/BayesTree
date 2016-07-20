@@ -614,13 +614,15 @@ void Node::currentFits(MuS* mod,int nTrain,double** xTrain,double* yTrain,int nT
 
                 Cell *cell = data.first;
                 if(nobTrain>0) itr[1]=*((int *)(cell->contents));
-                ybar = yTrain[itr[1]];
+                ybar = yTrain[itr[1]]*w[itr[1]];
                 for(int j=2;j<=nobTrain;j++) {
                    cell = cell->after;
                    itr[j]=*((int *)(cell->contents));
-                   ybar += yTrain[itr[j]];
+                   //ybar += yTrain[itr[j]];
+                   ybar += yTrain[itr[j]]*w[itr[j]];
                 }
                 ybar /= nobTrain;
+                //should we divide by sum of weights instead?
 
                 b=nobTrain/mod->getSigma2();a=mod->getA();
                 postmu = b*ybar/(a+b); postsd = 1.0/sqrt(a+b);

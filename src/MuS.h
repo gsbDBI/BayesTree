@@ -53,6 +53,6 @@ private:
    double ybar,s2; // sample mean and sum(y_i-ybar)^2
    double b;     // nob/sigma2
    // methods----------------------------------------------
-   void updatepost();
+   void updatepost(double* w);
 };
 #endif

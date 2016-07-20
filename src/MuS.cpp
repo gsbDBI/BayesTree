@@ -27,14 +27,15 @@ double MuS::getLogILik()
    //std::cout << "p5: " << res << std::endl;
    return res;  
 }
-void MuS::updatepost()
+void MuS::updatepost(w)
 {
    int i;
    double d;
    if(nob) {
       ybar=0.0;
-      for(i=1;i<=nob;i++) ybar += y[indices[i]];
+      for(i=1;i<=nob;i++) ybar += y[indices[i]]*w[indices[i]];
       ybar /= nob;
+      //should we divide ybar by sum of weights?
       s2=0.0;
       for(i=1;i<=nob;i++) {d=y[indices[i]]-ybar; s2 += d*d;}
       b = nob/sigma2;
@@ -53,7 +54,8 @@ void MuS::setData(int nob, double **x, double *y,
    this->nob=nob;
    this->y=y;
    this->indices=indices;
-   updatepost();
+   //updatepost();
+   updatepost(w);
 }
 double* MuS::getParameterEstimate()
 {
