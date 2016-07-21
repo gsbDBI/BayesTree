@@ -92,7 +92,7 @@ void mbart(int *iNumObs, int *iNumX, int *inrowTest,
    }
    //weights=*iweights;
    NumObs = *iNumObs;
-   weights_flag=*iweightsflag;
+   weights_flag=*iweights_flag;
    NumX = *iNumX;
    int nrowTest = *inrowTest;
 
