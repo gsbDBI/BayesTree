@@ -22,7 +22,7 @@ double LogLNode(Node *n)
 	else
 	{
 
-		endNodeModel->setData(nob,XDatR,YDat1,divec,weights);
+		endNodeModel->setData(nob,XDatR,YDat1,divec,weights,weights_flag);
 		lp = endNodeModel->getLogILik();
 	}
 

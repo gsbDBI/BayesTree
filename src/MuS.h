@@ -30,7 +30,7 @@ public:
    virtual double* getFits(int np, double** xpred, int* indpred);
    virtual double getLogILik();
    virtual void setData(int nob, double **x, double *y,
-                        int *indices, double *w); 
+                        int *indices, double *w,int weights_flag); 
    // public methods -----------------------------
    void toScreen() const;
    void drawPost();
@@ -46,6 +46,7 @@ private:
    int nob;
    double* y;
    double* w;
+   int weights_flag;
    //double* w; should implement this in the future
    int* indices;
    // state -----------------------------

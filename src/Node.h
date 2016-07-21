@@ -63,8 +63,8 @@ public:
 
 	voidP* GetBotArray();
 	int* GetIndPart(int numObs, double** x);
-	double** GetFits(void* model,int  nTrain,double** dTrain, double** dTrainR,double* yTrain, int nTest, double** dTest, double** dTestR, double* w);
-	double** GetEstimates(void* model,int  nTrain,double** dTrain, double** dTrainR,double* yTrain, double* w);
+	double** GetFits(void* model,int  nTrain,double** dTrain, double** dTrainR,double* yTrain, int nTest, double** dTest, double** dTestR, double* w, int weights_flag);
+	double** GetEstimates(void* model,int  nTrain,double** dTrain, double** dTrainR,double* yTrain, double* w, int weights_flag);
         //void  currentFits(MuS* mod,int nTrain,double** xTrain,double* yTrain,int nTest,double** xTest,double* w, Lib& gen, double** fits);
         void  currentFits(MuS* mod,int nTrain,double** xTrain,double* yTrain,int nTest,double** xTest,double* w, double** fits);
 

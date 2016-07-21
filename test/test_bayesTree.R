@@ -17,9 +17,10 @@ lmFit = lm(y~.,data.frame(x,y)) #compare lm fit to BART later
 ##run BART
 #set dummy train weights for now
 trainw<-y*0+0.5
+weights_flag<-1
 xtest<-matrix(0.0,0,0)
 set.seed(99)
-bartFit = bart(x,y,ndpost=200,xtest,trainw) #default is ndpost=1000, this is to run example fast.
+bartFit = bart(x,y,ndpost=200,xtest,trainw,weights_flag) #default is ndpost=1000, this is to run example fast.
 par(mar=c(1,1,1,1))
 plot(bartFit) # plot bart fit
 ##compare BART fit to linear matter and truth = Ey

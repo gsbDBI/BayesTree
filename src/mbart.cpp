@@ -48,6 +48,7 @@ double* YDat1=0;	// y data with just one y
 double **XDatR;	// x data, used in regression model
 int NumXR;		// number of columns in XDatR
 double* weights;
+int weights_flag;
 
 int *RuleNum; // integer vec of length NumX, ith is number of split
 				// points for ORD var and number of CATs for CAT var
@@ -66,7 +67,7 @@ EndNodeModel* endNodeModel=0;
 
 extern "C" {
 void mbart(int *iNumObs, int *iNumX, int *inrowTest,
-           double *iXDat, double *iYDat, double *iweights,
+           double *iXDat, double *iYDat, double *iweights,int *iweights_flag,
 	   double *iXTest,
 	   double *isigma, int *isigdf, double *isigquant,
 	   double *ikfac,
@@ -91,6 +92,7 @@ void mbart(int *iNumObs, int *iNumX, int *inrowTest,
    }
    //weights=*iweights;
    NumObs = *iNumObs;
+   weights_flag=*iweightsflag;
    NumX = *iNumX;
    int nrowTest = *inrowTest;
 

@@ -526,7 +526,7 @@ int* Node::GetIndPart(int numObs, double** xx)
 	return indPart;
 }
 
-double** Node::GetFits(void* model,int  nTrain,double** xTrain, double** xTrainR, double* yTrain, int nTest, double** xTest, double** xTestR, double* w)
+double** Node::GetFits(void* model,int  nTrain,double** xTrain, double** xTrainR, double* yTrain, int nTest, double** xTest, double** xTestR, double* w, int weights_flag)
 {
 	int i,j;
 	EndNodeModel* mod = (EndNodeModel*)model;
@@ -570,7 +570,7 @@ double** Node::GetFits(void* model,int  nTrain,double** xTrain, double** xTrainR
 		count=0;
 		for(j=1;j<=nTest;j++) {if(indPartTest[j]==i) {count +=1; indObsTest[count]=j;}}
 
-		mod->setData(nobTrain,xTrainR,yTrain,indObsTrain,w);
+		mod->setData(nobTrain,xTrainR,yTrain,indObsTrain,w,weights_flag);
 
 		tempFits = mod->getFits(nobTrain,xTrainR,indObsTrain);
 		for(j=1;j<=nobTrain;j++) fits[1][indObsTrain[j]] = tempFits[j];
@@ -644,7 +644,7 @@ void Node::currentFits(MuS* mod,int nTrain,double** xTrain,double* yTrain,int nT
 	if(nTest) delete [] indPartTest;
         delete [] botvec;
 }
-double** Node::GetEstimates(void* model,int  nTrain,double** xTrain, double** xTrainR, double* yTrain, double* w)
+double** Node::GetEstimates(void* model,int  nTrain,double** xTrain, double** xTrainR, double* yTrain, double* w, int weights_flag)
 {
 	EndNodeModel* mod = (EndNodeModel*)model;
 	
@@ -670,7 +670,7 @@ double** Node::GetEstimates(void* model,int  nTrain,double** xTrain, double** xT
 		count=0;
 		for(j=1;j<=nTrain;j++) if(indPartTrain[j]==i) {count +=1; indObsTrain[count]=j;}
 
-		mod->setData(nobTrain,xTrainR,yTrain,indObsTrain,w);
+		mod->setData(nobTrain,xTrainR,yTrain,indObsTrain,w,weights_flag);
 
 		tempCoef = mod->getParameterEstimate();
 		for(j=1;j<=edim;j++) estimates[i][j] = tempCoef[j];

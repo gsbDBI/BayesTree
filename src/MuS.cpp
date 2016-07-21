@@ -37,9 +37,18 @@ void MuS::updatepost()
       ybar=0.0;
       for(i=1;i<=nob;i++)
       {
+        if(weights_flag)
+        {
         ybar += y[indices[i]]*w[indices[i]];
         sumweights+=w[indices[i]];
 	   sumweights2+=w[indices[i]]*w[indices[i]]; 
+        }
+        else
+        {
+          ybar += y[indices[i]];
+          sumweights++;
+          sumweights2++;
+        }
       }
       //ybar /= nob;
       ybar/=sumweights;
@@ -58,12 +67,14 @@ void MuS::updatepost()
    }
 }
 void MuS::setData(int nob, double **x, double *y,
-                  int *indices, double *w)
+                  int *indices, double *w, int weights_flag)
 {
    this->nob=nob;
    this->y=y;
    this->indices=indices;
    this->w=w;
+   this->weights_flag=weights_flag;
+   //set w to 1 if weights flag is set to 0
    updatepost();
 }
 double* MuS::getParameterEstimate()

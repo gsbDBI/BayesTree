@@ -1,5 +1,5 @@
 bart = function(
-   x.train, y.train, x.test=matrix(0.0,0,0),trainw,
+   x.train, y.train, x.test=matrix(0.0,0,0),trainw,weights_flag,
    sigest=NA, sigdf=3, sigquant=.90, 
    k=2.0,
    power=2.0, base=.95,
@@ -98,7 +98,7 @@ bart = function(
    }
 
    cres = .C('mbart',as.integer(nrow(x.train)), as.integer(ncol(x.train)), as.integer(nrow(x.test)),
-                   as.double(x.train), as.double(y),as.double(trainw),
+                   as.double(x.train), as.double(y),as.double(trainw),as.integer(weights_flag),
                    as.double(x.test),
                    as.double(sigest),   as.integer(sigdf), as.double(sigquant),
                    as.double(k),
