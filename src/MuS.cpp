@@ -37,6 +37,7 @@ void MuS::updatepost()
       ybar=0.0;
       for(i=1;i<=nob;i++)
       {
+        Rprintf("inside updatepost, weights_flag=%d\n",weights_flag);
         if(weights_flag)
         {
         ybar += y[indices[i]]*w[indices[i]];
@@ -74,6 +75,7 @@ void MuS::setData(int nob, double **x, double *y,
    this->indices=indices;
    this->w=w;
    this->weights_flag=weights_flag;
+   Rprintf("this->weights_flag= %d\n",this->weights_flag);
    //set w to 1 if weights flag is set to 0
    updatepost();
 }
