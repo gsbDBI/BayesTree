@@ -35,22 +35,28 @@ void MuS::updatepost()
    double sumweights2=0.0;
    if(nob) {
       ybar=0.0;
+     if(weights_flag)
+     {
       for(i=1;i<=nob;i++)
       {
-        Rprintf("inside updatepost, weights_flag=%d\n",weights_flag);
-        if(weights_flag)
-        {
+        //Rprintf("inside updatepost, weights_flag=%d\n",weights_flag);
+        //if(weights_flag)
+        //{
         ybar += y[indices[i]]*w[indices[i]];
         sumweights+=w[indices[i]];
-	   sumweights2+=w[indices[i]]*w[indices[i]]; 
-        }
+	   sumweights2+=w[indices[i]]*w[indices[i]];
+      }
+     }
         else
         {
+          for(i=1;i<=nob;i++)
+          {
           ybar += y[indices[i]];
           sumweights++;
           sumweights2++;
+          }
         }
-      }
+      
       //ybar /= nob;
       ybar/=sumweights;
       //should we divide ybar by sum of weights?
@@ -75,7 +81,7 @@ void MuS::setData(int nob, double **x, double *y,
    this->indices=indices;
    this->w=w;
    this->weights_flag=weights_flag;
-   Rprintf("this->weights_flag= %d\n",this->weights_flag);
+   //Rprintf("this->weights_flag= %d\n",this->weights_flag);
    //set w to 1 if weights flag is set to 0
    updatepost();
 }
