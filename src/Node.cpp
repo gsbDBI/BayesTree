@@ -606,6 +606,7 @@ void Node::currentFits(MuS* mod,int nTrain,double** xTrain,double* yTrain,int nT
 	int nobTrain=0;
         int *itr;
   double sumweights=0.0;
+  double sumweights2=0.0;
 
 	for(int i=1;i<=nbot;i++) { // loop over bottom nodes-------------
                 //data is list of indices of train obs in the bottom node
@@ -613,6 +614,7 @@ void Node::currentFits(MuS* mod,int nTrain,double** xTrain,double* yTrain,int nT
                 nobTrain = data.length;
                 itr = new int[nobTrain+1]; //copy list contents to itr
                 sumweights=0.0;
+                sumweights2=0.0;
                 Cell *cell = data.first;
                 if(nobTrain>0) itr[1]=*((int *)(cell->contents));
                 ybar = yTrain[itr[1]]*w[itr[1]];
@@ -623,11 +625,13 @@ void Node::currentFits(MuS* mod,int nTrain,double** xTrain,double* yTrain,int nT
                    //ybar += yTrain[itr[j]];
                    ybar += yTrain[itr[j]]*w[itr[j]];
                    sumweights+=w[itr[j]];
+                   sumweights2+=w[itr[j]]*w[itr[j]];
                 }
                 //ybar /= nobTrain;
                 //should we divide by sum of weights instead?
                 ybar/=sumweights;
-                b=nobTrain/mod->getSigma2();a=mod->getA();
+                b=(sumweights*sumweights)/(sumweights2 * mod->getSigma2());
+                a=mod->getA();
                 postmu = b*ybar/(a+b); postsd = 1.0/sqrt(a+b);
                 nodeMu = postmu + postsd*norm_rand();
 
