@@ -25,6 +25,7 @@ extern double* YDat1;
 extern double **XDatR;
 extern int NumXR;
 extern double* weights;
+extern int weights_flag;
 
 extern int *RuleNum; 
 extern double **RuleMat; 
