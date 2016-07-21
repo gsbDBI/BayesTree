@@ -669,7 +669,7 @@ double** Node::GetEstimates(void* model,int  nTrain,double** xTrain, double** xT
 		indObsTrain = new int[nobTrain+1];
 		count=0;
 		for(j=1;j<=nTrain;j++) if(indPartTrain[j]==i) {count +=1; indObsTrain[count]=j;}
-
+		//Rprintf("inside getestimates,before setdata\n");
 		mod->setData(nobTrain,xTrainR,yTrain,indObsTrain,w,weights_flag);
 
 		tempCoef = mod->getParameterEstimate();
