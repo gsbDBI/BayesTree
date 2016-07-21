@@ -619,6 +619,7 @@ void Node::currentFits(MuS* mod,int nTrain,double** xTrain,double* yTrain,int nT
                 if(nobTrain>0) itr[1]=*((int *)(cell->contents));
                 ybar = yTrain[itr[1]]*w[itr[1]];
                 sumweights=w[itr[1]];
+                sumweights2=w[itr[1]]*w[itr[1]];
                 for(int j=2;j<=nobTrain;j++) {
                    cell = cell->after;
                    itr[j]=*((int *)(cell->contents));
