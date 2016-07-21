@@ -569,7 +569,7 @@ double** Node::GetFits(void* model,int  nTrain,double** xTrain, double** xTrainR
 		indObsTest = new int[nobTest+1];
 		count=0;
 		for(j=1;j<=nTest;j++) {if(indPartTest[j]==i) {count +=1; indObsTest[count]=j;}}
-
+    Rprintf("inside getfits,before setdata");
 		mod->setData(nobTrain,xTrainR,yTrain,indObsTrain,w,weights_flag);
 
 		tempFits = mod->getFits(nobTrain,xTrainR,indObsTrain);

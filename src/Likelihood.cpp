@@ -21,7 +21,8 @@ double LogLNode(Node *n)
 	if(nob==0) lp = -10000000.0;
 	else
 	{
-
+	  Rprintf("inside loglnode,before setdata");
+	  
 		endNodeModel->setData(nob,XDatR,YDat1,divec,weights,weights_flag);
 		lp = endNodeModel->getLogILik();
 	}
