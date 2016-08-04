@@ -78,7 +78,7 @@ void MuS::updatepost()
       b=0.0;
    }
    FILE *fptr;
-   fptr=fopen("test_dump.txt","w+");
+   fptr=fopen("test_dump.txt","a");
    fprintf(fptr,"nob=%d,ybar=%f,sumweights=%f\n",nob,ybar,sumweights);
    fclose(fptr);
    //free(fptr);
