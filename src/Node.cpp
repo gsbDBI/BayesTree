@@ -629,6 +629,13 @@ void Node::currentFits(MuS* mod,int nTrain,double** xTrain,double* yTrain,int nT
                    sumweights+=w[itr[j]];
                    sumweights2+=w[itr[j]]*w[itr[j]];
                 }
+                
+                for(int j=2;j<=nobTrain;j++)
+                {
+                  Rprintf("weights=%f,itr=%d,j=%d\n",w[itr[j]],itr,j);
+                  
+                }
+                Rprintf("////////\n");
                 //ybar /= nobTrain;
                 //should we divide by sum of weights instead?
                 ybar/=sumweights;
