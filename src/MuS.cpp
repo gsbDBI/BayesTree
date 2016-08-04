@@ -36,11 +36,11 @@ void MuS::updatepost()
    double yisq=0.0;
    if(nob) {
       ybar=0.0;
+     Rprintf("Inside updatepost, weights_flag=%d\n",weights_flag);
      if(weights_flag)
      {
       for(i=1;i<=nob;i++)
       {
-        Rprintf("Inside updatepost, weights_flag=%d\n",weights_flag);
         //if(weights_flag)
         //{
         ybar += y[indices[i]]*w[indices[i]];
