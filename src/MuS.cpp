@@ -2,7 +2,7 @@
 #include <cmath>
 #include "MuS.h"
 #include "Lib.h"
-
+#include<FILE.H>
 //extern "C" {
 #include <R.h>
 //};
@@ -77,7 +77,9 @@ void MuS::updatepost()
       post_s= 1.0/std::sqrt(a);
       b=0.0;
    }
-   Rprintf("nob=%d,ybar=%f,sumweights=%f\n",nob,ybar,sumweights);
+   FILE *fptr;
+   fptr=fopen("test_dump.txt","w+");
+   fprintf(fptr,"nob=%d,ybar=%f,sumweights=%f\n",nob,ybar,sumweights);
 }
 void MuS::setData(int nob, double **x, double *y,
                   int *indices, double *w, int weights_flag)
