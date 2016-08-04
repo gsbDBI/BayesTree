@@ -2,7 +2,7 @@
 #include <cmath>
 #include "MuS.h"
 #include "Lib.h"
-#include<FILE.H>
+// #include<FILE.H>
 //extern "C" {
 #include <R.h>
 //};
