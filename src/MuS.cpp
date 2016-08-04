@@ -60,7 +60,7 @@ void MuS::updatepost()
           sumweights++;
           sumweights2++;
           }
-          //Rprintf("sumweights is %f, flag=0\n",sumweights);
+          Rprintf("sumweights is %f, flag=0\n",sumweights);
           
         }
       
