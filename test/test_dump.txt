@@ -1,0 +1,1 @@
+nob=0,ybar=0.000000,sumweights=0.000000

@@ -78,10 +78,10 @@ void MuS::updatepost()
       b=0.0;
    }
    FILE *fptr;
-   fptr=fopen("test_dump.txt","w+");
+   fptr=fopen("test_dump.txt","a");
    fprintf(fptr,"nob=%d,ybar=%f,sumweights=%f\n",nob,ybar,sumweights);
    fclose(fptr);
-   free(fptr);
+   //free(fptr);
 }
 void MuS::setData(int nob, double **x, double *y,
                   int *indices, double *w, int weights_flag)
