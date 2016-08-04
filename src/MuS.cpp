@@ -54,7 +54,7 @@ void MuS::updatepost()
           for(i=1;i<=nob;i++)
           {
           ybar += y[indices[i]];
-            Rprintf("ybar=%f\n",ybar);
+            Rprintf("yindices=%f,indices=%d,i=%d\n",y[indices[i]],indices[i],i);
 		yisq += y[indices[i]]*y[indices[i]];
           sumweights++;
           sumweights2++;
