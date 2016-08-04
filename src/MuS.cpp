@@ -48,19 +48,19 @@ void MuS::updatepost()
         sumweights+=w[indices[i]];
 	   sumweights2+=w[indices[i]]*w[indices[i]];
       }
-      Rprintf("sumweights is %f, flag=1\n",sumweights);
+      //Rprintf("sumweights is %f, flag=1\n",sumweights);
      }
         else
         {
           for(i=1;i<=nob;i++)
           {
           ybar += y[indices[i]];
-           Rprintf("yindices=%f,indices=%d,i=%d\n",y[indices[i]],indices[i],i);
+           //Rprintf("yindices=%f,indices=%d,i=%d\n",y[indices[i]],indices[i],i);
 		yisq += y[indices[i]]*y[indices[i]];
           sumweights++;
           sumweights2++;
           }
-          Rprintf("sumweights is %f, flag=0\n",sumweights);
+          //Rprintf("sumweights is %f, flag=0\n",sumweights);
           
         }
       
