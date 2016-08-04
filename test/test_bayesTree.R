@@ -1,6 +1,6 @@
 #install from our github branch
 library(devtools)
-install_github("gsbDBI/bayesTree",ref="modSA",force=TRUE)
+# install_github("gsbDBI/bayesTree",ref="modSA",force=TRUE)
 library(BayesTree)
 #code to test bayesTree
 #simulate data (example from Friedman MARS paper)
