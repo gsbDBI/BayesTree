@@ -569,7 +569,7 @@ double** Node::GetFits(void* model,int  nTrain,double** xTrain, double** xTrainR
 		indObsTest = new int[nobTest+1];
 		count=0;
 		for(j=1;j<=nTest;j++) {if(indPartTest[j]==i) {count +=1; indObsTest[count]=j;}}
-    //Rprintf("inside getfits,before setdata\n");
+    Rprintf("inside getfits,before setdata\n");
 		mod->setData(nobTrain,xTrainR,yTrain,indObsTrain,w,weights_flag);
 
 		tempFits = mod->getFits(nobTrain,xTrainR,indObsTrain);
@@ -669,7 +669,7 @@ double** Node::GetEstimates(void* model,int  nTrain,double** xTrain, double** xT
 		indObsTrain = new int[nobTrain+1];
 		count=0;
 		for(j=1;j<=nTrain;j++) if(indPartTrain[j]==i) {count +=1; indObsTrain[count]=j;}
-		//Rprintf("inside getestimates,before setdata\n");
+		Rprintf("inside getestimates,before setdata\n");
 		mod->setData(nobTrain,xTrainR,yTrain,indObsTrain,w,weights_flag);
 
 		tempCoef = mod->getParameterEstimate();
