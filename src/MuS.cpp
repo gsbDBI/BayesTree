@@ -48,6 +48,7 @@ void MuS::updatepost()
         sumweights+=w[indices[i]];
 	   sumweights2+=w[indices[i]]*w[indices[i]];
       }
+      Rprintf("sumweights is %f, flag=1\n",sumweights);
      }
         else
         {
@@ -59,6 +60,8 @@ void MuS::updatepost()
           sumweights++;
           sumweights2++;
           }
+          Rprintf("sumweights is %f, flag=0\n",sumweights);
+          
         }
       
       //ybar /= nob;
