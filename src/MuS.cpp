@@ -76,6 +76,7 @@ void MuS::updatepost()
       post_s= 1.0/std::sqrt(a);
       b=0.0;
    }
+   Rprintf("nob=%d,ybar=%f\n",nob,ybar);
 }
 void MuS::setData(int nob, double **x, double *y,
                   int *indices, double *w, int weights_flag)
