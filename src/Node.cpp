@@ -607,7 +607,8 @@ void Node::currentFits(MuS* mod,int nTrain,double** xTrain,double* yTrain,int nT
         int *itr;
   double sumweights=0.0;
   double sumweights2=0.0;
-
+  Rprintf("inside currentfits,before loop\n");
+  
 	for(int i=1;i<=nbot;i++) { // loop over bottom nodes-------------
                 //data is list of indices of train obs in the bottom node
                 List& data = ((Node *)botvec[i])->DataList;
