@@ -632,9 +632,10 @@ void Node::currentFits(MuS* mod,int nTrain,double** xTrain,double* yTrain,int nT
                 //ybar /= nobTrain;
                 //should we divide by sum of weights instead?
                 ybar/=sumweights;
+                Rprintf("in currentfits, sigma2=%f, sumweights=%f,\n",sumweights,mod->getSigma2());
                 b=(sumweights*sumweights)/(sumweights2 * mod->getSigma2());
                 a=mod->getA();
-                Rprintf("in currentfits, a=%f,b=%f\n",a,b);
+                //Rprintf("in currentfits, a=%f,b=%f\n",a,b);
                 postmu = b*ybar/(a+b); postsd = 1.0/sqrt(a+b);
                 nodeMu = postmu + postsd*norm_rand();
 
