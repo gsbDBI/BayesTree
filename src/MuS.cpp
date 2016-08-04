@@ -54,7 +54,7 @@ void MuS::updatepost()
           for(i=1;i<=nob;i++)
           {
           ybar += y[indices[i]];
-           // Rprintf("yindices=%f,indices=%d,i=%d\n",y[indices[i]],indices[i],i);
+           Rprintf("yindices=%f,indices=%d,i=%d\n",y[indices[i]],indices[i],i);
 		yisq += y[indices[i]]*y[indices[i]];
           sumweights++;
           sumweights2++;
@@ -79,7 +79,7 @@ void MuS::updatepost()
    }
    //FILE *fptr;
    //fptr=fopen("test_dump.txt","a");
-   Rprintf("nob=%d,ybar=%f,sumweights=%f\n",nob,ybar,sumweights);
+   //Rprintf("nob=%d,ybar=%f,sumweights=%f\n",nob,ybar,sumweights);
    //fprintf(fptr,"nob=%d,ybar=%f,sumweights=%f\n",nob,ybar,sumweights);
    //fclose(fptr);
    ////free(fptr);
