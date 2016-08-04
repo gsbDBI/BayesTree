@@ -40,7 +40,7 @@ void MuS::updatepost()
      {
       for(i=1;i<=nob;i++)
       {
-        printf("Inside updatepost, weights_flag=%d\n",weights_flag);
+        Rprintf("Inside updatepost, weights_flag=%d\n",weights_flag);
         //if(weights_flag)
         //{
         ybar += y[indices[i]]*w[indices[i]];
