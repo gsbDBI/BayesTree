@@ -1,8 +1,8 @@
 #install from our github branch
 library(devtools)
-# install_github("gsbDBI/bayesTree",ref="modSA",force=TRUE)
+install_github("gsbDBI/bayesTree",ref="modSA",force=TRUE)
 library(BayesTree)
-sink("test.log", type=c("output"))
+sink("C:/Users/vikasr/Desktop/dump/test.log", type=c("output"))
 #code to test bayesTree
 #simulate data (example from Friedman MARS paper)
 f = function(x){
