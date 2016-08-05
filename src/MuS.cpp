@@ -44,7 +44,7 @@ void MuS::updatepost()
         //if(weights_flag)
         //{
         ybar += y[indices[i]]*w[indices[i]];
-        Rprintf("inside updatepost,flag=1, yindices=%f,indices=%d,i=%d\n",y[indices[i]],indices[i],i);
+       // Rprintf("inside updatepost,flag=1, yindices=%f,indices=%d,i=%d\n",y[indices[i]],indices[i],i);
 	   yisq += y[indices[i]]*y[indices[i]]*w[indices[i]];
         sumweights+=w[indices[i]];
 	   sumweights2+=w[indices[i]]*w[indices[i]];
@@ -56,12 +56,12 @@ void MuS::updatepost()
           for(i=1;i<=nob;i++)
           {
           ybar += y[indices[i]];
-           Rprintf("inside updatepost,flag=0, yindices=%f,indices=%d,i=%d\n",y[indices[i]],indices[i],i);
+       //    Rprintf("inside updatepost,flag=0, yindices=%f,indices=%d,i=%d\n",y[indices[i]],indices[i],i);
 		yisq += y[indices[i]]*y[indices[i]];
           sumweights++;
           sumweights2++;
           }
-          Rprintf("inside updatepost, sumweights is %f, flag=0\n",sumweights);
+        //  Rprintf("inside updatepost, sumweights is %f, flag=0\n",sumweights);
           
         }
       
@@ -83,7 +83,7 @@ void MuS::updatepost()
    }
    //FILE *fptr;
    //fptr=fopen("test_dump.txt","a");
-   Rprintf("inside updatepost, nob=%d,ybar=%f,sumweights=%f\n",nob,ybar,sumweights);
+  // Rprintf("inside updatepost, nob=%d,ybar=%f,sumweights=%f\n",nob,ybar,sumweights);
    //fprintf(fptr,"nob=%d,ybar=%f,sumweights=%f\n",nob,ybar,sumweights);
    //fclose(fptr);
    ////free(fptr);
