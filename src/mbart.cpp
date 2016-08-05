@@ -373,6 +373,7 @@ void mbart(int *iNumObs, int *iNumX, int *inrowTest,
 	       Z = -qnorm((1.0-u)*pnorm(mtotalfit[i]+binary_offset,0.0,1.0,1,0) + u,0.0,1.0,1,0);
 	    }
 	    Y[i] = mtotalfit[i] + Z;
+	    Rprintf("inside mbart, after setsigma, Y[i]=%f\n",Y[i]);
 	 }
       }
       if(k%keepevery==0) {
