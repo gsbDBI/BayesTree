@@ -44,6 +44,7 @@ void MuS::updatepost()
         //if(weights_flag)
         //{
         ybar += y[indices[i]]*w[indices[i]];
+        Rprintf("inside updatepost,flag=1, yindices=%f,indices=%d,i=%d\n",y[indices[i]],indices[i],i);
 	   yisq += y[indices[i]]*y[indices[i]]*w[indices[i]];
         sumweights+=w[indices[i]];
 	   sumweights2+=w[indices[i]]*w[indices[i]];
@@ -55,7 +56,7 @@ void MuS::updatepost()
           for(i=1;i<=nob;i++)
           {
           ybar += y[indices[i]];
-           Rprintf("inside updatepost, yindices=%f,indices=%d,i=%d\n",y[indices[i]],indices[i],i);
+           Rprintf("inside updatepost,flag=0, yindices=%f,indices=%d,i=%d\n",y[indices[i]],indices[i],i);
 		yisq += y[indices[i]]*y[indices[i]];
           sumweights++;
           sumweights2++;

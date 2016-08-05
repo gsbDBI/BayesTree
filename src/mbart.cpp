@@ -196,7 +196,7 @@ void mbart(int *iNumObs, int *iNumX, int *inrowTest,
    VarType = new int [NumX+1];
    for(int i=1;i<=NumX;i++) VarType[i]=ORD;
    weights = new double[NumObs+1];
-   for(int i=1;i<=NumObs;i++) weights[i]=iweights[i];
+   for(int i=1;i<=NumObs;i++) weights[i]=iweights[i-1];
    RuleNum = new int[NumX+1];
    RuleMat = new dp [NumX+1];
 
@@ -362,6 +362,7 @@ void mbart(int *iNumObs, int *iNumX, int *inrowTest,
          sd.setData(NumObs,eps);
          sd.drawPost();
          mu.setSigma(sd.getS());
+         //tbd: print the above values
       }
       if(binary) {
          double u,Z;
@@ -373,7 +374,7 @@ void mbart(int *iNumObs, int *iNumX, int *inrowTest,
 	       Z = -qnorm((1.0-u)*pnorm(mtotalfit[i]+binary_offset,0.0,1.0,1,0) + u,0.0,1.0,1,0);
 	    }
 	    Y[i] = mtotalfit[i] + Z;
-	    Rprintf("inside mbart, after setsigma, Y[i]=%f\n",Y[i]);
+	    //Rprintf("inside mbart, after setsigma, Y[i]=%f\n",Y[i]);
 	 }
       }
       if(k%keepevery==0) {
