@@ -30,12 +30,13 @@ double MuS::getLogILik()
 void MuS::updatepost()
 {
    int i;
-   // double d;
+  double d;
    double sumweights=0.0;
    double sumweights2=0.0;
    double yisq=0.0;
    if(nob) {
       ybar=0.0;
+      yisq=0.0;
      //Rprintf("Inside updatepost, weights_flag=%d\n",weights_flag);
      if(weights_flag)
      {
@@ -71,7 +72,9 @@ void MuS::updatepost()
       s2=0.0;
       //for(i=1;i<=nob;i++) {d=y[indices[i]]-ybar; s2 += d*d;}
       // b = nob/sigma2; 
-     s2=yisq/sumweights-ybar*ybar; 
+     
+     //s2=yisq/sumweights-ybar*ybar; 
+     s2=yisq-sumweights*ybar*ybar;
 	b = (sumweights*sumweights)/(sumweights2 * sigma2);
       post_m = (b*ybar)/(a+b);
       post_s = 1.0/std::sqrt(a+b);
